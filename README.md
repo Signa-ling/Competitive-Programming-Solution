@@ -1,6 +1,7 @@
 # Atcoder-Soltion
 
 ## Abstract
-- AtCoderの解けなかった問題のコード集
-- コメントアウトによる補足多め
-- 所謂学習記録
+- AtCoderの学習記録
+- 考え方の記載メイン
+
+## [My Profile](https://kenkoooo.com/atcoder/?user=Signal&rivals=&kind=category#/user/Signal)
