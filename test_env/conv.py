@@ -23,22 +23,24 @@ def rewrite_ans(base_file_path, file_path):
 
 def main():
     # 第1引数: 開催タイトル, 第2引数: 開催回
-    event_num = '{}{}'.format('ABC', '160')
+    event_num = '{}{}'.format('ABC', '131')
 
     # 問題番号
-    question_num = '{}'.format('E')
+    question_num = '{}'.format('D')
 
     folder_path = './' + event_num + '/'
     file_name = event_num + '_' + question_num + '.py'
     base_file_path = "./test_env/proto.py"
     file_path = os.path.join(folder_path, file_name)
+    if not os.path.exists(folder_path):
+        os.mkdir(folder_path)
+
+    with open(file_path, mode='w') as f:
+        print(type(f))
 
     rewrite_ans(base_file_path, file_path)
 
     # 開催回のフォルダ作成 &　コピペ
-    if not os.path.exists(folder_path):
-        os.mkdir(folder_path)
-
     with open(file_path, mode="r") as answer:
         pyperclip.copy(answer.read())
 

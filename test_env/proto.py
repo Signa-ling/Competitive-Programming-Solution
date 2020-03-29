@@ -5,16 +5,19 @@ inp = open("./test_env/input.txt", mode="r")
 
 
 # ----ここからプログラム----
-x, y, a, b, c = map(int, inp.readline().split())
-r = list(map(int, inp.readline().split()))
-g = list(map(int, inp.readline().split()))
-cl = list(map(int, inp.readline().split()))
+N = int(inp.readline())
+A = [list(map(int, inp.readline().split())) for i in range(N)]
+A = sorted(A, key=lambda x: x[1])
 
-r.sort(reverse=True)
-g.sort(reverse=True)
+work = 0
+for a in A:
+    work += a[0]
 
-ans = r[:x] + g[:y] + cl
-print(sum(sorted(ans, reverse=True)[:x+y]))
+    if work>a[1]:
+        print('No')
+        exit()
+
+print('Yes')
 
 # ----ここまでプログラム----
 
