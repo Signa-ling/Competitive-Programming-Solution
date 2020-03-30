@@ -23,10 +23,10 @@ def rewrite_ans(base_file_path, file_path):
 
 def main():
     # 第1引数: 開催タイトル, 第2引数: 開催回
-    event_num = '{}{}'.format('ABC', '131')
+    event_num = '{}{}'.format('ARC', '003')
 
     # 問題番号
-    question_num = '{}'.format('D')
+    question_num = '{}'.format('B')
 
     folder_path = './' + event_num + '/'
     file_name = event_num + '_' + question_num + '.py'
@@ -43,7 +43,6 @@ def main():
     # 開催回のフォルダ作成 &　コピペ
     with open(file_path, mode="r") as answer:
         pyperclip.copy(answer.read())
-
 
 
 if __name__ == "__main__":

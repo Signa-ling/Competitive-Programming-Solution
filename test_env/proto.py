@@ -5,20 +5,11 @@ inp = open("./test_env/input.txt", mode="r")
 
 
 # ----ここからプログラム----
-N = int(inp.readline())
-A = [list(map(int, inp.readline().split())) for i in range(N)]
-A = sorted(A, key=lambda x: x[1])
-
-work = 0
-for a in A:
-    work += a[0]
-
-    if work>a[1]:
-        print('No')
-        exit()
-
-print('Yes')
-
+n = int(inp.readline())
+S = [inp.readline().replace('\n', '')[::-1] for _ in range(n)]
+S.sort()
+for sr in S:
+    print(sr[::-1])
 # ----ここまでプログラム----
 
 # ファイルのクローズ
