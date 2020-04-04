@@ -22,18 +22,21 @@ def rewrite_ans(base_file_path, file_path):
 
 
 def main():
-    # 第1引数: 開催タイトル, 第2引数: 開催回
-    event_num = '{}{}'.format('ABC', '089')
+    # イベント名
+    event_name = 'ABC'
+
+    # 開催番号
+    event_num = '{}{}'.format(event_name, '116')
 
     # 問題番号
-    question_num = '{}'.format('C')
+    question_num = 'C'
 
-    folder_path = './' + event_num + '/'
+    folder_path = './' + event_name + '/' + event_num + '/'
     file_name = event_num + '_' + question_num + '.py'
     base_file_path = "./test_env/proto.py"
     file_path = os.path.join(folder_path, file_name)
     if not os.path.exists(folder_path):
-        os.mkdir(folder_path)
+        os.makedirs(folder_path)
 
     with open(file_path, mode='w') as f:
         print(type(f))

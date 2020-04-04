@@ -5,11 +5,24 @@ inp = open("./test_env/input.txt", mode="r")
 
 
 # ----ここからプログラム----
-from itertools import combinations as c
-n = int(inp.readline())
-S = [inp.readline().replace("\n", "")[0] for _ in range(n)]
-cnt = [S.count(i) for i in "MARCH"]
-print(sum(i*j*k for i, j, k in c(cnt, 3)))
+N = int(inp.readline())
+h = list(map(int, inp.readline().split()))
+cnt = 0
+while True:
+    if max(h) == 0:
+        print(cnt)
+        break
+    i = 0
+    while i < N:
+        if h[i] == 0:
+            i += 1
+        else:
+            cnt += 1
+            while i < N and h[i] > 0:
+                h[i] -= 1
+                i += 1
+
+
 
 # ----ここまでプログラム----
 
