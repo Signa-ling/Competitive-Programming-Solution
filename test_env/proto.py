@@ -5,13 +5,18 @@ inp = open("./test_env/input.txt", mode="r")
 
 
 # ----ここからプログラム----
-from collections import Counter
+from collections import Counter as C
+
 N = int(inp.readline())
-a = [int(inp.readline()) for _ in range(N)]
-cnt = 0
-for i in Counter(a).values():
-    if i%2==1: cnt+=1
-print(cnt)
+A = list(map(int,inp.readline().split()))
+c = C(A)
+s = 0
+for i in c.values():
+    s += i*(i-1)//2
+for j in A:
+    print(s-(c[j]-1))
+
+
 # ----ここまでプログラム----
 
 # ファイルのクローズ
