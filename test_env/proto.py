@@ -5,18 +5,17 @@ inp = open("./test_env/input.txt", mode="r")
 
 
 # ----ここからプログラム----
-from collections import Counter as C
-
-N = int(inp.readline())
-A = list(map(int,inp.readline().split()))
-c = C(A)
-s = 0
-for i in c.values():
-    s += i*(i-1)//2
-for j in A:
-    print(s-(c[j]-1))
-
-
+n,m = map(int, inp.readline().split())
+x = [list(map(int, inp.readline().split())) for _ in range(m)]
+for i in range(10**n):
+    a = str(i)
+    if len(a)!=n: continue
+    for s,c in x:
+        if a[s-1]!=str(c): break
+    else:
+        print(i)
+        exit()
+print(-1)
 # ----ここまでプログラム----
 
 # ファイルのクローズ
