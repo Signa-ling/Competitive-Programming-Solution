@@ -5,16 +5,15 @@ inp = open("./test_env/input.txt", mode="r")
 
 
 # ----ここからプログラム----
-from collections import deque
+from collections import Counter as cnt
 n = int(inp.readline())
-A = inp.readline().split()
-ans = deque()
-cnt = 1
-for a in A:
-    if cnt%2==n%2: ans.appendleft(a)
-    else: ans.append(a)
-    cnt+=1
-print(' '.join(ans))
+S = [inp.readline().replace('\n', '') for _ in range(n)]
+S = cnt(S)
+m = max(S.values())
+S = sorted(S.items(), key=lambda x: x[0])
+for s, i in S:
+    if i==m: print(s)
+
 # ----ここまでプログラム----
 
 
