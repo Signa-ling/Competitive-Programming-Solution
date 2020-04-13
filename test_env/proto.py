@@ -5,20 +5,24 @@ inp = open("./test_env/input.txt", mode="r")
 
 
 # ----ここからプログラム----
-from math import gcd
-from itertools import combinations as com
-n = int(inp.readline())
-ans = 0
-a = [6*(n-1) for _ in range(1,n)]
-for i in range(1, n+1):
-    for j in range(1, n+1):
-        if i%j==0 or j%i==0:
-            print(i, j)
-            ans += min(i, j)
-print(sum(a))
+n, m = map(int, inp.readline().split())
+ac, wa = 0, 0
+ac = [0]*(n+1)
+wa = [0]*(n+1)
+ans1, ans2 = 0, 0
+for i in range(m):
+    p, s = map(str, inp.readline().split())
+    if ac[int(p)]==1: continue
+    if s=='AC':
+        ac[int(p)] = 1
+        ans1 += 1
+        ans2 += wa[int(p)]
+    else:
+        wa[int(p)] += 1
 
-print(ans)
+print(ans1, ans2)
 # ----ここまでプログラム----
+
 
 
 # ファイルのクローズ
