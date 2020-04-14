@@ -26,7 +26,7 @@ def main():
     event_name = 'ABC'
 
     # 開催番号
-    event_num = '{}{}'.format(event_name, '154')
+    event_num = '{}{}'.format(event_name, '146')
 
     # 問題番号
     question_num = 'C'

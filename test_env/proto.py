@@ -5,9 +5,15 @@ inp = open("./test_env/input.txt", mode="r")
 
 
 # ----ここからプログラム----
-n = int(inp.readline())
-a = set(list(map(int, inp.readline().split())))
-print('YES' if len(a)==n else 'NO')
+a, b, x = map(int, inp.readline().split())
+minN, maxN = 0, x+1
+while minN+1<maxN:
+    tmp = (minN+maxN)//2
+    if a*tmp+b*len(str(tmp))<=x: minN=tmp
+    else: maxN=tmp
+    print(minN, maxN)
+print(min(minN, 10**9))
+
 # ----ここまでプログラム----
 
 
