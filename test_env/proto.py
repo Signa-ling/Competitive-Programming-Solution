@@ -5,14 +5,17 @@ inp = open("./test_env/input.txt", mode="r")
 
 
 # ----ここからプログラム----
-a, b, x = map(int, inp.readline().split())
-minN, maxN = 0, x+1
-while minN+1<maxN:
-    tmp = (minN+maxN)//2
-    if a*tmp+b*len(str(tmp))<=x: minN=tmp
-    else: maxN=tmp
-    print(minN, maxN)
-print(min(minN, 10**9))
+C = inp.readline()
+ans = ''
+flag=True
+for c in C:
+    if c==' ' and flag:
+        c = ','
+        flag=False
+    elif c!=' ':
+        flag=True
+    ans+=c
+print(ans)
 
 # ----ここまでプログラム----
 

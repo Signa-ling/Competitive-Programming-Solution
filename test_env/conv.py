@@ -23,13 +23,13 @@ def rewrite_ans(base_file_path, file_path):
 
 def main():
     # イベント名
-    event_name = 'ABC'
+    event_name = 'Other'
 
     # 開催番号
-    event_num = '{}{}'.format(event_name, '146')
+    event_num = '{}{}'.format(event_name, '天下一プログラマーコンテスト2012 予選A')
 
     # 問題番号
-    question_num = 'C'
+    question_num = 'B'
 
     folder_path = './' + event_name + '/' + event_num + '/'
     file_name = event_num + '_' + question_num + '.py'
