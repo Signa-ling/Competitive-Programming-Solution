@@ -1,17 +1,9 @@
-# ローカル実行環境の作成
-# ファイルのオープン
-
-inp = open("./test_env/input.txt", mode="r")
-
-
-# ----ここからプログラム----
-h, w = map(int,inp.readline().split())
+h, w = map(int,input().split())
 a = []
 flag = True
 for i in range(h):
-    aa = list(inp.readline().rstrip())
+    aa = list(input().rstrip())
     a.append(aa)
-
 for i in range(h):
     for j in range(w):
         if a[i][j]=='.': continue
@@ -24,10 +16,3 @@ for i in range(h):
             flag = False
             break
 print('Yes' if flag else 'No')
-
-# ----ここまでプログラム----
-
-
-
-# ファイルのクローズ
-inp.close()
