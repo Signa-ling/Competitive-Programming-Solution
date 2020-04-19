@@ -26,10 +26,10 @@ def main():
     event_name = 'ABC'
 
     # 開催番号
-    event_num = '{}{}'.format(event_name, '153')
+    event_num = '{}{}'.format(event_name, '163')
 
     # 問題番号
-    question_num = 'C'
+    question_num = 'a'
 
     folder_path = './' + event_name + '/' + event_num + '/'
     file_name = event_num + '_' + question_num + '.py'

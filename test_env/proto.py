@@ -5,11 +5,10 @@ inp = open("./test_env/input.txt", mode="r")
 
 
 # ----ここからプログラム----
-n, k = map(int, inp.readline().split())
-h = list(map(int, inp.readline().split()))
-h = sorted(h, reverse=True)
-# print(h)
-print(sum(h[k:]))
+# from collections import Counter
+import math
+n = int(inp.readline())
+print(2*n*math.pi)
 # ----ここまでプログラム----
 
 # ファイルのクローズ
