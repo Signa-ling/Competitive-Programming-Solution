@@ -7,19 +7,9 @@ inp = open("./test_env/input.txt", mode="r")
 # ----ここからプログラム----
 # from collections import Counter
 # import math
-n, k = map(int, inp.readline().split())
 A = list(map(int, inp.readline().split()))
-B = [(1+i)/2 for i in A]
-ans = sum(B[:k])
-t = ans
-for i in range(n-k):
-    t-=B[i]
-    t+=B[i+k]
-    if t>ans: ans=t
-print(ans)
-
-
-
+m3, suma = max(A)*3, sum(A)
+print((m3-suma)//2 if (m3-suma)%2==0 else (m3-suma)//2 + 2)
 # ----ここまでプログラム----
 
 # ファイルのクローズ
