@@ -7,20 +7,16 @@ inp = open("./test_env/input.txt", mode="r")
 # ----ここからプログラム----
 # from collections import Counter
 # import math
-n = int(inp.readline())
-A = list(map(int, inp.readline().split()))
-#minnum = 0
-cnt = 0
-B = []
-for i in range(n):
-    tmp = A[i]
-    if tmp<0:
-        tmp*=-1
-        cnt+=1
-    #print(tmp)
-    B.append(tmp)
-#print(cnt, sum(B), min(B))
-print(sum(B)-min(B)*2 if cnt%2!=0 else sum(B))
+x = int(inp.readline())
+A = [i for i in range(-118, 120)]
+B = [i for i in range(-119, 119)]
+for i in range(A):
+    for j in range(B):
+        a, b = i**5, j**5
+        if a-b==x:
+            print(i, j)
+            exit()
+
 # ----ここまでプログラム----
 
 # ファイルのクローズ
