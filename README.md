@@ -1,8 +1,8 @@
-# Atcoder-Soltion
+# Competitive-Programming-Soltion
 
 ## 概要
 
-- ローカル環境使って解いたAtCoderの問題の解法(今の所Pythonオンリー)
+- ローカル環境使って解いた競技プログラミングの問題の解法(今の所Pythonオンリー)
   - (大半はサイト上で記述して提出してたのであんまり無い)
 - 考え方の記載とかが主になる予定
 
@@ -16,8 +16,8 @@
 
 - proto.pyに記述
 - input.txtにテストケースを入れる
-- conv.pyでproto.pyの中身が提出用に書き換えられてanswer.pyに書き込まれる
-- answer.pyの内容を提出する
+- conv.pyでproto.pyの中身が提出用に書き換えられて対応した問題の箇所のフォルダ内に作成されたpyファイルに書き込まれる
+  - このファイルを提出
 
 ### Libraly
 
