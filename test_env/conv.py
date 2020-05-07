@@ -3,6 +3,25 @@ import re
 import pyperclip
 
 
+class ProblemAssignment():
+    def __init__(self, problem_site):
+        self.problem_site = problem_site
+
+    def atcoder_problem(self, e_name, e_num, q_num):
+        folder_path = './{0}/{1}/{1}{2}/'.format(self.problem_site, e_name, e_num)
+        file_name = '{0}{1}_{2}.py'.format(e_name, e_num, q_num)
+        file_path = os.path.join(folder_path, file_name)
+
+        return folder_path, file_path
+
+    def aoj_problem(self, e_name, e_num, q_num):
+        folder_path = './{0}/{1}/{1}{2}/'.format(self.problem_site, e_name, e_num)
+        file_name = '{0}{1}_{2}.py'.format(e_name, e_num, q_num)
+        file_path = os.path.join(folder_path, file_name)
+
+        return folder_path, file_path
+
+
 # 変換用にファイルの読み込み
 def rewrite_ans(base_file_path, file_path):
     with open(base_file_path, mode="r", encoding="utf-8") as prot, open(file_path, mode="w") as answ:
@@ -21,31 +40,46 @@ def rewrite_ans(base_file_path, file_path):
                 answ.write(tmp)
 
 
-def main():
-    # イベント名
-    event_name = 'ABC'
-
-    # 開催番号
-    event_num = '{}{}'.format(event_name, '166')
-
-    # 問題番号
-    question_num = 'D'
-
-    folder_path = './' + event_name + '/' + event_num + '/'
-    file_name = event_num + '_' + question_num + '.py'
+def file_create(folder_path, file_path):
     base_file_path = "./test_env/proto.py"
-    file_path = os.path.join(folder_path, file_name)
     if not os.path.exists(folder_path):
         os.makedirs(folder_path)
 
     with open(file_path, mode='w') as f:
-        print(type(f))
+        print("file open")
 
     rewrite_ans(base_file_path, file_path)
 
     # 開催回のフォルダ作成 &　コピペ
     with open(file_path, mode="r") as answer:
         pyperclip.copy(answer.read())
+
+
+def main():
+    # サイト
+    problem_site = ["AtCoder", "AOJ"]
+
+    while(True):
+        num = int(input("数字を入れてね(AtCoder:0, AOJ:1): "))
+        if num <= 1: break
+        print("指定された数字に対応した問題サイトは未作成です…")
+
+    problem_assign = ProblemAssignment(problem_site[num])
+
+    event_name = 'ITP'
+    event_num = '999'
+    question_num = 'A'
+
+    if num == 0:
+        folder_path, file_path = problem_assign.atcoder_problem(event_name,
+                                                                event_num,
+                                                                question_num)
+    elif num == 1:
+        folder_path, file_path = problem_assign.aoj_problem(event_name,
+                                                            event_num,
+                                                            question_num)
+    file_create(folder_path, file_path)
+    print('Finish')
 
 
 if __name__ == "__main__":
