@@ -9,7 +9,7 @@ class ProblemAssignment():
 
     def atcoder_problem(self, e_name, e_num, q_num):
         folder_path = './{0}/{1}/{1}{2}/'.format(self.problem_site, e_name, e_num)
-        file_name = '{0}{1}_{2}.py'.format(e_name, e_num, q_num)
+        file_name = '{0}_{1}_{2}.py'.format(e_name, e_num, q_num)
         file_path = os.path.join(folder_path, file_name)
 
         return folder_path, file_path
