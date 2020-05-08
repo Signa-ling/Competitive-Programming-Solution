@@ -6,17 +6,18 @@ inp = open("./test_env/input.txt", mode="r")
 
 # ----ここからプログラム----
 # from collections import Counter
+# from itertools import combinations as com
 # import math
-x = int(inp.readline())
-A = [i for i in range(-118, 120)]
-B = [i for i in range(-119, 119)]
-for i in range(A):
-    for j in range(B):
-        a, b = i**5, j**5
-        if a-b==x:
-            print(i, j)
-            exit()
-
+n, m = map(int, inp.readline().split())
+a = [list(map(int, inp.readline().split())) for _ in range(n)]
+ans = 0
+for i in range(m-1):
+    for j in range(1, m):
+        pt = 0
+        for k in range(n):
+            pt += max(a[k][i], a[k][j])
+        ans = max(ans, pt)
+print(ans)
 # ----ここまでプログラム----
 
 # ファイルのクローズ

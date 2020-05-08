@@ -8,8 +8,12 @@ class ProblemAssignment():
         self.problem_site = problem_site
 
     def atcoder_problem(self, e_name, e_num, q_num):
-        folder_path = './{0}/{1}/{1}{2}/'.format(self.problem_site, e_name, e_num)
-        file_name = '{0}_{1}_{2}.py'.format(e_name, e_num, q_num)
+        if e_name=='Other':
+            folder_path = './{0}/{1}/{1}_{2}/'.format(self.problem_site, e_name, e_num)
+            file_name = '{0}_{1}.py'.format(e_num, q_num)
+        else:    
+            folder_path = './{0}/{1}/{1}{2}/'.format(self.problem_site, e_name, e_num)
+            file_name = '{0}{1}_{2}.py'.format(e_name, e_num, q_num)
         file_path = os.path.join(folder_path, file_name)
 
         return folder_path, file_path
@@ -66,9 +70,9 @@ def main():
 
     problem_assign = ProblemAssignment(problem_site[num])
 
-    event_name = 'ITP'
-    event_num = '999'
-    question_num = 'A'
+    event_name = 'Other'
+    event_num = 'パ研合宿2019　第3日「パ研杯2019」'
+    question_num = 'C'
 
     if num == 0:
         folder_path, file_path = problem_assign.atcoder_problem(event_name,
