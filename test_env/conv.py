@@ -71,8 +71,8 @@ def main():
     problem_assign = ProblemAssignment(problem_site[num])
 
     event_name = 'Other'
-    event_num = '第７回日本情報オリンピック 本選（オンライン）'
-    question_num = 'D'
+    event_num = 'square869120Contest #6'
+    question_num = 'B2'
 
     if num == 0:
         folder_path, file_path = problem_assign.atcoder_problem(event_name,

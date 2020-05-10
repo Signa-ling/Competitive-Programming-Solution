@@ -9,27 +9,20 @@ inp = open("./test_env/input.txt", mode="r")
 # from itertools import combinations as com
 # from itertools import product as pro
 # import math
-import numpy as np
+# import numpy as np
 
-m = int(inp.readline())
-mxy = [tuple(map(int, inp.readline().split())) for _ in range(m)]
-smxy = set(mxy)
 n = int(inp.readline())
-nxy = [list(map(int, inp.readline().split())) for _ in range(n)]
-nx, ny = np.array(list(map(lambda x: x[0], nxy))), np.array(list(map(lambda x: x[1], nxy)))
-for i in range(m):
-    x, y = mxy[i]
-    for j in range(n):
-        x2, y2 = nxy[j]
-        xx, yy = x-x2, y-y2
-        nx, ny = nx + xx, ny + yy
-        ab = set([(a, b) for a, b in zip(nx, ny)])
-        if len(smxy & ab) == m:
-            # print(smxy)
-            # print(ab)
-            print(xx*-1, yy*-1)
-            exit()
-        nx, ny = nx - xx, ny - yy
+ab = [list(map(int, inp.readline().split())) for _ in range(n)]
+a, b = list(map(lambda x: x[0], ab)), list(map(lambda x: x[1], ab))
+zip_ab = list(zip(sorted(a), sorted(b)))
+s, g = zip_ab[n//2]
+ans = 0
+for i,j in ab:
+    if s<=i and j<=g: ans+=g-s
+    elif i<s and j<=g: ans += (s-i)*2 + g-s
+    elif s<=i and g<j: ans += g-s + (j-g)*2
+    else: ans += (s-i)*2 + (j-g)*2 + g-s
+print(ans)
 # ----ここまでプログラム----
 
 # ファイルのクローズ
