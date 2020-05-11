@@ -11,18 +11,17 @@ inp = open("./test_env/input.txt", mode="r")
 # import math
 # import numpy as np
 
-n = int(inp.readline())
-ab = [list(map(int, inp.readline().split())) for _ in range(n)]
-a, b = list(map(lambda x: x[0], ab)), list(map(lambda x: x[1], ab))
-zip_ab = list(zip(sorted(a), sorted(b)))
-s, g = zip_ab[n//2]
+S = inp.readline()
 ans = 0
-for i,j in ab:
-    if s<=i and j<=g: ans+=g-s
-    elif i<s and j<=g: ans += (s-i)*2 + g-s
-    elif s<=i and g<j: ans += g-s + (j-g)*2
-    else: ans += (s-i)*2 + (j-g)*2 + g-s
+for i in range(2**(len(S)-1)):
+    s = ''
+    for j in range(len(S)):
+        s += S[j]
+        if i & (1 >> j): s+='+'
+    ans+=eval(s)
 print(ans)
+
+
 # ----ここまでプログラム----
 
 # ファイルのクローズ
