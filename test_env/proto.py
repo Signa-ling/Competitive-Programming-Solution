@@ -11,16 +11,26 @@ inp = open("./test_env/input.txt", mode="r")
 # import math
 # import numpy as np
 
-S = inp.readline()
-ans = 0
-for i in range(2**(len(S)-1)):
-    s = ''
-    for j in range(len(S)):
-        s += S[j]
-        if i & (1 >> j): s+='+'
-    ans+=eval(s)
-print(ans)
+def binarySearch(n, S, t):
+    left, right = 0, n
+    while left < right:
+        mid = (left + right) // 2
+        if S[mid]==t: return 1
+        elif t < S[mid]: right = mid
+        else: left = mid + 1
 
+    return 0
+
+
+n = int(inp.readline())
+S = list(map(int, inp.readline().split()))
+q = int(inp.readline())
+T = list(map(int, inp.readline().split()))
+cnt = 0
+for i in range(q):
+    cnt += binarySearch(n, S, T[i])
+
+print(cnt)
 
 # ----ここまでプログラム----
 

@@ -70,9 +70,9 @@ def main():
 
     problem_assign = ProblemAssignment(problem_site[num])
 
-    event_name = 'ABC'
-    event_num = '167'
-    question_num = 'C'
+    event_name = 'ALDS'
+    event_num = '1_4'
+    question_num = 'B'
 
     if num == 0:
         folder_path, file_path = problem_assign.atcoder_problem(event_name,
