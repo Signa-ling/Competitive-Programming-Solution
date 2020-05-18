@@ -70,9 +70,9 @@ def main():
 
     problem_assign = ProblemAssignment(problem_site[num])
 
-    event_name = 'ALDS'
-    event_num = '1_4'
-    question_num = 'B'
+    event_name = 'Other'
+    event_num = '第７回日本情報オリンピック 予選（オンライン）'
+    question_num = 'E'
 
     if num == 0:
         folder_path, file_path = problem_assign.atcoder_problem(event_name,

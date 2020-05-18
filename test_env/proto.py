@@ -5,33 +5,27 @@ inp = open("./test_env/input.txt", mode="r")
 
 
 # ----ここからプログラム----
+
+# 数数えるやつ
 # from collections import Counter
+
+# 組み合わせのやつ
 # from itertools import combinations as com
+
+# 順列のやつ
+# from itertools import permutations as per
+
+# 重複有りの順列のやつ
 # from itertools import product as pro
-# import math
+
+# from math import sqrt, factorial
 # import numpy as np
 
-def binarySearch(n, S, t):
-    left, right = 0, n
-    while left < right:
-        mid = (left + right) // 2
-        if S[mid]==t: return 1
-        elif t < S[mid]: right = mid
-        else: left = mid + 1
 
-    return 0
-
-
-n = int(inp.readline())
-S = list(map(int, inp.readline().split()))
-q = int(inp.readline())
-T = list(map(int, inp.readline().split()))
-cnt = 0
-for i in range(q):
-    cnt += binarySearch(n, S, T[i])
-
-print(cnt)
-
+p = float(inp.readline())
+pp = int(p+1)
+for x in range(pp+1):
+    t = (pp-x) + 2**(x/1.5)
 # ----ここまでプログラム----
 
 # ファイルのクローズ
